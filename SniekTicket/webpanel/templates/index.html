@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SniekTicket</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+        
+            </ul>
+          </div>
+
+        </div>
+    </nav>
+
+
+    <!--MAIN-->
+
+
+    <div class="opentickets">
+
+        <h1>Offene Tickets</h1>
+        <h4>Hier siehst du alle derzeit offenen Tickets</h4>
+        <table>
+            <tr>
+              <th>ID</th>
+              <th>Owner</th>
+              <th>Channel</th>
+              <th>Timestamp</th>
+              <th>Moderator</th>
+              <th>Betreff</th>
+              <th>Genaues Anliegen</th>
+            </tr>
+            {% for item in opendata %}
+            <tr>
+
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            {% if item[4] == 0%}
+                <td>{{item[4]}}</td>
+            {% else %}
+                <td>Kein Moderator</td>
+            {% endif %}
+            <td>{{item[6]}}</td>
+            <td>{{item[7]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+
+    <div class="opentickets">
+
+        <h1>Geschlossene Tickets</h1>
+        <h4>Hier siehst du alle derzeit geschlossenen Tickets</h4>
+        <table>
+            <tr>
+              <th>ID</th>
+              <th>Owner</th>
+              <th>Channel</th>
+              <th>Timestamp</th>
+              <th>Moderator</th>
+              <th>Betreff</th>
+              <th>Genaues Anliegen</th>
+            </tr>
+            {% for item in closeddata %}
+            <tr>
+
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            {% if item[4] == 0%}
+                <td>{{item[4]}}</td>
+            {% else %}
+                <td>Kein Moderator</td>
+            {% endif %}
+            <td>{{item[6]}}</td>
+            <td>{{item[7]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+
+        function generate_table() {
+        const tbl = document.createElement("table");
+        const tblBody = document.createElement("tbody");
+
+        for (let i = 0; i < 2; i++) {
+            const row = document.createElement("tr");
+
+            for (let j = 0; j < 2; j++) {
+            const cell = document.createElement("td");
+            const cellText = document.createTextNode("x cell in row "+i+", column "+j);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+            }
+
+            tblBody.appendChild(row);
+        }
+
+        tbl.appendChild(tblBody);
+        var vorhandenesObjekt = document.getElementById("openticketslist");
+        vorhandenesObjekt.appendChild(tbl);
+
+
+        tbl.setAttribute("border", "2");
+        }
+
+
+    </script>
+
+</body>
+</html>

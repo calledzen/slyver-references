@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body, html {
+    background-color: #eff3f6;
+
+}
+
+
+nav {
+    margin: 10px;
+    margin-inline: 20px;
+    background-color: #fff;
+    padding: 0 20px;
+    position: relative;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 1;
+    border-radius: 50px;
+}
+
+
+.navbar-brand {
+
+    font-family: 'Inter', sans-serif;
+    margin-right: 40px;
+    margin-left: 20px;
+    font-size: 30px;
+}
+
+
+
+@media only screen and (min-width: 992px) {
+    nav {
+      margin-inline: 250px;
+    }
+  }
+
+.opentickets {
+    margin-top: 75px;
+    margin-inline: 2%;
+    background-color: #fff;
+    padding: 0 20px;
+    position: relative;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 1;
+    border-radius: 30px;
+    padding: 20px;
+
+
+}
+
+
+.opentickets h1 {
+
+    font-family: 'Inter', sans-serif;
+    padding-top: 10px;
+    font-weight: semi-bold;
+
+}
+
+.opentickets h4 {
+
+    font-family: 'Inter', sans-serif;
+    margin-top: -5px;
+    font-style:italic;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+
+.opentickets table {
+    width: 100%;
+
+}
+
+.opentickets th {
+
+    color: #000;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    padding: 5px;
+
+    border-bottom: 4px solid #DCDCDC;
+
+}
+
+.opentickets td {
+    padding: 10px;
+
+    border-bottom: 4px solid #DCDCDC;
+}
